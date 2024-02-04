@@ -23,7 +23,7 @@ repos:
             venv|
             __pycache__"""
 
-        language_version: python3.10
+        language_version: python3.11
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:

@@ -4,12 +4,12 @@ from fastapi.responses import JSONResponse
 
 class Response(JSONResponse):
     def __init__(
-            self,
-            payload=None,
-            message=None,
-            debug_message=None,
-            status_code=status.HTTP_200_OK,
-            **kwargs
+        self,
+        payload=None,
+        message=None,
+        debug_message=None,
+        status_code=status.HTTP_200_OK,
+        **kwargs,
     ):
         payload = payload or {}
         if kwargs.get("data") is not None:

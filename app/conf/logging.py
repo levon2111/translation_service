@@ -29,17 +29,17 @@ def replace_env_for_config(log_conf: dict) -> None:
     for k, v in log_conf.items():
         if isinstance(v, dict):
             replace_env_for_config(v)
-        elif isinstance(v, str) and v[0] == '$':
+        elif isinstance(v, str) and v[0] == "$":
             log_conf[k] = os.environ.get(v[1:])
 
 
 def create_log_config(log_path: str) -> dict:
-    with open(log_path, 'r') as f:
+    with open(log_path, "r") as f:
         log_config = yaml.load(f, Loader=yaml.CLoader)
         replace_env_for_config(log_config)
     return log_config
 
 
 def setup_logging():
-    log_config = create_log_config('app/conf/logging.yaml')
+    log_config = create_log_config("app/conf/logging.yaml")
     logging.config.dictConfig(log_config)

@@ -11,10 +11,17 @@ class Translation(BaseModel):
 
 
 class WordDefinition(BaseModel):
-    definitions: List[str] = Field(default=[],
-                                   example=["A contest or competition.", "A call or summons to engage in any contest."])
+    definitions: List[str] = Field(
+        default=[],
+        example=[
+            "A contest or competition.",
+            "A call or summons to engage in any contest.",
+        ],
+    )
     synonyms: List[str] = Field(default=[], example=["contest", "competition"])
-    translations: List[Translation] = Field(default=[], example=[{"language": "es", "translation": "desafío"}])
+    translations: List[Translation] = Field(
+        default=[], example=[{"language": "es", "translation": "desafío"}]
+    )
     examples: List[str] = Field(default=[], example=["The team faced a tough challenge."])
 
 
